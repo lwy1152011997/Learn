@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    js中的数据类型分为:
+      基本数据类型:
+        String
+        Number
+        Boolean
+        Null
+        undefined
+      引用数据类型:
+        Object:
+          function
+          array
+   -->
+</body>
+<script>
+  /* 要检查数据时什么什么类型的 可以使用 typeof 来检测 */
+  console.log(typeof "undefined"); // string
+  console.log(typeof "123"); // string
+  console.log(typeof undefined); // undefined
+  console.log(typeof null); //object
+  console.log(typeof {}); // object
+  console.log(typeof function () { }); // function
+  console.log(typeof []); // object
+  /* 可以看出 typeof不能检测 null和 [] */
+
+  /* 我们可以使用 a instanceof A ,简单理解就是 a是否是A的实例对象 返回值就是 true或者是false */
+  console.log({} instanceof Object); // true
+  console.log([] instanceof Array); // true
+  console.log(function () {} instanceof Function); // true
+  console.log(null instanceof Object); // false
+  /* 结论: 因为不能直接通过 typeof 检测 null array 所以我们需要对它们增加一层 instanceof判断 */
+
+  
+</script>
+
+</html>
