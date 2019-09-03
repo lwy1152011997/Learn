@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a href="https://juejin.im/post/5b10ba336fb9a01e66164346#heading-4">原文链接内存机制</a>
+</body>
+<script>
+  /* 
+    js中的内存空间我们一般分为 栈stack(存放变量,基本数据类型值) 和 堆heap(存引用数据类型的对应地址值)
+
+    栈是一种(先入后出,后入先出)结构,类似于一个封死底部的乒乓球球桶;它存储的是基本数据类型
+    堆用来存储引用数据类型值的(保存的是引用数据类型的地址值)
+   */
+
+   /* 
+    内存的生命周期:
+      主要分为: 分配内存 > 内存使用 > 内存回收 这几个周期 
+      1.当我们创建变量、函数、对象的时候，js引擎会自动为帮我们分配对应内存
+      2.当我们对变量,函数,对象进行读写操作的时候,就是对内存进行使用
+      3.当我们使用完毕某个变量,对象,函数时,js引擎的垃圾回收机制会自动回收不使用的内存
+    */
+    var a = 20;  // 在内存中给数值变量分配空间
+    alert(a + 100);  // 使用内存
+    var a = null; // 使用完毕之后，释放内存空间
+
+    // 构造函数 和 立即执行函数的生命周期 ?
+</script>
+</html>

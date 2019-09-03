@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /* null 和 undefined 的区别 */
+  /* 
+    undefined 表示变量或者属性定义了,但是没有赋值,但是我们很少主动将变量去赋值为 undefined,多数是由系统自动完成的
+    null 表示定义了变量或者属性也赋值了,只是变量或者属性的值为 null
+   */
+
+  // 怎么得到一个 undefined ?
+  var a;
+  console.log( a ); // 定义一个变量未赋值时
+
+  console.log( b ); // 在初始化变量之前使用这个变量时
+  var b = 123;
+
+  function fn( x ) {
+    console.log( x ) // 函数内定义了形参没有赋值实参时
+  }
+ console.log(  fn() ); // 执行一个函数没有指定返回值时
+
+ var obj = {};
+ console.log( obj.a ); // 访问对象中不存在的属性时
+
+// 什么时候用到 null 呢?
+var obj1 = null; // 表示我们定义了变量,将来打算把这个变量作为对象来使用,所以初始化值为 null
+obj1 = {}; // 让变量称为一个引用数据类型
+obj1 = null; // 我们在使用完这个引用数据类型之后,如果不想再后面再使用就可以把它置为 null 
+             // 这样就可以将变量的引用类型值变为一个垃圾对象,后面就会被垃圾回收机制所回收
+
+/* 
+  js中的变量是没有数据类型的,它的数据类型由变量的值决定
+  js中的变量的值为引用数据类型的时候,变量保存的是引用数据类型的地址值,这个地址值指向的是 {} 或者 [] 或者 function () {}
+ */
+
+
+</script>
+</html>

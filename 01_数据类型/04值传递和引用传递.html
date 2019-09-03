@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  var obj1 = { a : 123};
+  var obj2 = obj1;
+  obj1 = { a : 456} ;
+  console.log( obj1, obj2) // { a: 456 } { a: 123 }
+  /* 
+    函数传参的时候是值传递,基本数据类型的值就会直接使用,引用数据类型的值是内存地址值的传递
+   */
+</script>
+</html>
