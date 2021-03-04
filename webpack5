@@ -1,1 +1,73 @@
+#webpack:
+++ 安装 npm i webpack webpack-cli --save-dev (-D) 开发环境使用
+++ 打包 webpack --mode development(production) 文件名
+   指定从哪个文件开始打包,打包到哪里 webpack 开始文件路径 -o 输出到哪个文件路径 --mode development
 
+## 概念:
+  + 是一个用于现代 JS 应用程序的静态模块打包工具,
+  + 简单理就是: webpack在打包项目的时候,会将项目中所用到的模块都收集起来并构建出一个模块与模块之间的依赖树形关系图, 并生成一个或多个bundle,
+  
+  + chunk 打包的过程中,被webpack操作的模块文件就称为chunk, 例如我们一步加载一个模块,这一动作,就是一个chunk
+  
+  + dundle: 就是经过webpack命令打包后生成的文件,浏览器最终执行的就是这个文件
+            它是由一个或者多个chunk组成的
+            一个立即执行函数包裹的代码块, 代码块的详细解释, --> bundleFile/dist/main.js
+  
+  + webpack主要做两个事情:
+    1. 对项目中所使用到的模块进行分析并有序合并
+    2. 为这些所使用到的模块提供有序,正常的执行环境
+    
+  + 为什么使用webpack
+    1. 搭建开发环境
+    2. 打包以及优化项目
+    
+  + 5核心概念  
+    *  1. entry -> webpack从哪个文件开始打包,分析构建项目依赖树形图
+    *  2. output -> webpack打包后的资源要输出到哪个位置,以及如何命名
+    *  3. loader -> webpack自身只能处理js和json, loader可以支持webpack能够去处理非js资源, 例如css,js,img等资源
+    *            我们可以把loader理解为一个编译过程,这个过程将webpack不能识别的资源编译为webpack可以识别的资源
+    *  4. plugins -> 让webpack可以执行更多的任务, 例如压缩,优化项目, 重新定义环境变量等等
+    *                它可以和loader配合使用处理一些资源
+    *  5. mode -> 指定webpack打包的模式 development/production
+    
+  + entry 可以配置一个入口文件或者多个入口文件, 详细看webpack.config.js文件
+  
+  + plugins 打包html资源,需要使用插件配置项 (html资源压缩) js打包只需要模式换位生产模式就好了
+            npm i html-webpack-plugin -D    
+    
+  + loader 打包css资源         
+           npm i css-loader style-loader -D
+           打包css资源过程:
+            1.先把css资源打包到js文件中, css-loader做的事情
+            2.再把打包后的css资源通过创建一个style标签插入到head标签中, style-loader做的事情
+              值得注意的是,在编译结束后不会直接生成style标签插入到html中,需要在浏览器中才能看到
+              因为创建标签和插入标签的代码运行是在打包后的js文件中
+              
+           打包 less scss stylus css的预编译工具
+           npm i less less-loader -D
+           npm i node-sass sass-loader -D  
+  + 将css资源单独抽取为一个或者多个css文件
+    npm i mini-css-extract-plugin -D 使用mini-css-extract-plugin这个插件
+    详细看webpack配置文件
+    
+  + css兼容处理
+   npm i postcss-loader postcss-preset-env -D  
+   1. 先在webpack中配置
+   2. 再进行浏览器配置,创建 post.config.js文件进行配置
+   3. 再指定兼容的浏览器版本是那些, post.config.js 文件会去读取package.json文件中的'browserList'配置项
+  
+  + 压缩css
+  
+  + 打包图片资源
+    实际的做法是将小于多少K的图片以base64的格式进行展示
+    配置方式百度
+    npm i url-loader file-loader -D
+        在css中使用到图片资源的时候,打包时使用url-loader 配置进行处理
+        在html中使用到图片资源的时候, 打包的时候需要使用到html-loader 配置进行处理
+               
+  + 打包其他资源
+    1. 字体图标, 一般使用阿里的阿里图标库 使用file-loader 配置处理
+    2. 配置对js, html, css 的语法检查 主要是 js语法检查 使用eslint语法检查
+             
+    
+            
