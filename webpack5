@@ -88,3 +88,43 @@
             去除没有使用到的css代码,和冗余的css代码
     
     
+
+
+<template>
+  <div>
+    <div class="a" @click="add">+</div>
+    <div class="b">-</div>
+    <div class="c"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Test',
+  data () {
+    return {
+      count: 0,
+      time: '',
+      sendObj: {}
+    }
+  },
+  methods: {
+    add () {
+      this.count++
+      this.time = '及时时间'
+      this.createSendData(this.sendObj, this.count, this.time)
+    },
+    // 点击添加会动态的添加key:val,......
+    createSendData (obj = {}, name, value) {
+      const _obj = obj
+      _obj[name] = value
+      console.log(_obj)
+      return _obj
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
